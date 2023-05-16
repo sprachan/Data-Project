@@ -5,6 +5,16 @@
 .Rdata
 .httr-oauth
 .DS_Store
-./data
+./data/R_Data/zf_large
+./data/all_ME_ebird.txt
+./data/BCCH_ebird.txt
+./data/EAPH_ebird.txt
+./data/FICR_sampling.txt
+./data/filtered/*
+./data/ME_SED.txt
+./data/old_FICR_ebird.txt
+./data/old_TUVU_ebird.txt
+./data/sample_ME_ebird.txt
+./data/sampling_data.txt
 ./plots
 /plots/
