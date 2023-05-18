@@ -233,18 +233,17 @@ ggplot()+geom_point(data=tuvu.m$df, aes(x=Week, y=CPUE, color=Year))+
 
 
 ###--- Differences from Mean ----
-ggplot(data=ficr.diffs, aes(x=Week, y=Difference, color=Year))+
+ggplot(data=ficr.diffs, aes(x=Week, y=Difference))+
   geom_point()+
   facet_wrap(facets=vars(Year))+
-  scale_color_viridis(option='H')+
   ylab('Difference from Mean')
+ggsave('./plots/residuals/FICR_diffs.png', dpi=500)
 
-ggplot(data=tuvu.diffs, aes(x=Week, y=Difference, color=Year))+
+ggplot(data=tuvu.diffs, aes(x=Week, y=Difference))+
   geom_point()+
   facet_wrap(facets=vars(Year))+
-  scale_color_viridis(option='H')+
   ylab('Difference from Mean')
-
+ggsave('./plots/residuals/TUVU_diffs.png', dpi=500)
 ### LOESS ----
 #plot BCCH
 ggplot()+

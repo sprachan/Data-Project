@@ -35,3 +35,8 @@ tuvu.mod <- loess_reg(x=tuvu.m$mat[,1], y=tuvu.m$mat[,2], epsilon=1, mesh=1041)
 
 #fish crows have weird data so take a more recent subset to see how that changes model
 ficr.mod2 <- loess_reg(x=ficr.m2$mat[,1], y=ficr.m2$mat[,2], epsilon=1, mesh=1041)
+
+
+#---- Calculate Weekly Mean CPUEs ----
+ficr.mean <- group_by(ficr.m$df, Week) %>% summarize(Mean_CPUE=mean(CPUE))
+tuvu.mean <- group_by(tuvu.m$df, Week) %>% summarize(Mean_CPUE=mean(CPUE))
