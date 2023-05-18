@@ -70,7 +70,6 @@ ggplot(data=subset(combined.ofpm, Year_Mo>=2022&Year_Mo<=2023),
   scale_fill_viridis_d(alpha=0.75)
 ggsave('./plots/CPUE_lists_zoom.png', dpi=500)
 
-
 ##---- Mapping ----
 ### 10 Years ----
 #### Chickadee ----
@@ -222,6 +221,30 @@ ggplot(data=tuvu.m$df, aes(x=Week, y=CPUE, color=Year))+
   scale_x_continuous(breaks=seq(0, 54, by=2))+
   scale_color_viridis(option='H')
 ggsave('./plots/overlays/tuvu.png', dpi=500)
+
+###---- With Mean----
+ggplot()+geom_point(data=ficr.m$df, aes(x=Week, y=CPUE, color=Year))+
+  geom_line(data=ficr.mean, aes(x=Week, y=Mean_CPUE), color='black', linewidth=1)+
+  scale_color_viridis(option='H')
+
+ggplot()+geom_point(data=tuvu.m$df, aes(x=Week, y=CPUE, color=Year))+
+  geom_line(data=tuvu.mean, aes(x=Week, y=Mean_CPUE), color='black', linewidth=1)+
+  scale_color_viridis(option='H')
+
+
+###--- Differences from Mean ----
+ggplot(data=ficr.diffs, aes(x=Week, y=Difference, color=Year))+
+  geom_point()+
+  facet_wrap(facets=vars(Year))+
+  scale_color_viridis(option='H')+
+  ylab('Difference from Mean')
+
+ggplot(data=tuvu.diffs, aes(x=Week, y=Difference, color=Year))+
+  geom_point()+
+  facet_wrap(facets=vars(Year))+
+  scale_color_viridis(option='H')+
+  ylab('Difference from Mean')
+
 ### LOESS ----
 #plot BCCH
 ggplot()+

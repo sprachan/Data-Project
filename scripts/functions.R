@@ -282,3 +282,19 @@ year_resids <- function(data.in, loess.in){
   res <- res[-1]
   res.df <- data.frame(Year=y, Week=rep(w, n), Res = res)
 }
+
+#---- mean_diffs ----
+mean_diffs <- function(data.in, means.in){
+  years <- unique(data.in$Year)
+  diffs <- 0
+  y <- 0
+  w <- unique(data.in$Week)
+  for(i in years){
+    obs.CPUE <- filter(data.in, Year==i)$CPUE
+    diffs <- c(diffs, obs.CPUE-means.in)
+    y <- c(y, rep(i, length(obs.CPUE)))
+  }
+  diffs <- diffs[-1]
+  y <- y[-1]
+  diff.df <- data.frame(Year=y, Week=rep(w, length(years)), Difference = diffs)
+}
