@@ -8,7 +8,7 @@ This project is mostly EDA. I plot checklists over time (cpy.R) and first sighti
 
 ------------------- Dependencies ------------------------
 (1) Code language
-All analysis carried out in R using RStudio IDE. I use RStudio's Project functionality for portability.
+Almost all analysis carried out in R using RStudio IDE. I use RStudio's Project functionality for portability. To generate a random subset of Maine eBird data, I used command line tools (awk and grep); that script is available in ./scripts/term_commands.txt.
 
 (2) Packages
 I load several packages in R and use functions from a few others. These should all be installed prior to running the script.

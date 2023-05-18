@@ -1,0 +1,7 @@
+## To generate a random sample of 1% of Maine data:
+
+awk 'BEGIN {srand()} !/^$/ { if (rand() <= 0.01 || FNR==1) print > "sample.txt"}' sample_ME_ebird.txt
+
+## To remove rows with 'X' counts from the random sample:
+
+grep -v "X" example.txt > x_out_sample_ME_ebird.txt
