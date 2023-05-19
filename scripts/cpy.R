@@ -21,7 +21,7 @@ me.mini <- data.frame(Checklist=me.rs.x$checklist_id, Obs.Date=me.rs.x$observati
 
 e.mini <- data.frame(Checklist=eaph$checklist_id, Obs.Date=eaph$observation_date,
                      Species=eaph$common_name, Count=eaph$observation_count)
-#Add Year, Month, and Day columns using my lovely function
+#Add Year, Month, and Day columns using my function
 f.mini <- date_cols(f.mini, as_f=FALSE)
 t.mini <- date_cols(t.mini, as_f=FALSE)
 b.mini <- date_cols(b.mini, as_f=FALSE)

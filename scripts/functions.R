@@ -44,6 +44,19 @@ cpy_func <- function(data.in, name.out){
   return(name.out)
 }
 
+
+#---- cpmy_func ----
+#get checklists per month per year
+cpmy_func <- function(data.in){
+  x <- data.in
+  x$Year = year(data.in$observation_date)
+  x$Month = month(data.in$observation_date)
+  x <- group_by(x, Year, Month) %>%
+    summarize(Checklists=n()) %>%
+    ungroup()
+  return(x)
+}
+
 #---- cutoff_rows ----
 #Removes rows whose year is strictly LESS than the cutoff value.
 cutoff_rows <- function(data.in, name.out, lb, ub){

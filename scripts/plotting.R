@@ -10,6 +10,14 @@ cpy.plot+geom_point(data=me.cpy, aes(x=Year, y=log(Number.Lists), fill='ME'), sh
   scale_fill_viridis_d(option='C', alpha=0.75)
 ggsave('./plots/cpy.jpg')
 
+
+### Seasonality of Checklists over time ----
+
+cpmy_func(me.rs.x) %>% filter(Year>=2000) %>%
+  ggplot(aes(x=Month, y=log(Checklists), color=Year))+
+  geom_point()+
+  scale_color_viridis(option='H', alpha=0.75)
+
 ### cutoff ----
 cpy.cutoff.plot <- ggplot()+geom_point(data=me.cpy.c, aes(x=Year, y=log(Number.Lists), fill='ME'), shape=21, size=2)+
   geom_point(data=b.cpy.c, aes(x=Year, y=log(Number.Lists), fill='BCCH'), shape=21, size=2)+

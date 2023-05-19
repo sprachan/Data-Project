@@ -81,7 +81,7 @@ source('./scripts/abundance.R')
 
 #---- 6. Mapping ----
 ## Map abundance in the state of Maine
-source('./scripts/mapping.R')
+#source('./scripts/mapping.R')
 
 #----7. Model Fitting ----
 source('./scripts/model_fitting.R')
